@@ -6,6 +6,7 @@ import Content from './layout/Content';
 import Sider from './layout/Sider';
 import LikesCounter from './LikesCounter';
 import UserAvatar from './user/UserAvatar';
+import UserContext from './user/UserContext';
 
 const postsData = [
   {
@@ -28,6 +29,11 @@ const postsData = [
   }
 ];
 
+const user = {
+  firstName: 'Miras',
+  lastName: 'Magzom',
+}
+
 function App() {
 
   const [posts, setPosts] = useState(postsData);
@@ -48,18 +54,20 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Header>
-        <UserAvatar/>
-      </Header>
-      <div className="App__main">
-        <Sider></Sider>
-        <Content>
-          <LikesCounter count={likedCount} />
-          <PostsList items={posts} onLikedClicked={onLikedClicked} />
-        </Content>
+    <UserContext.Provider value={user}>
+      <div className="App">
+        <Header>
+          <UserAvatar/>
+        </Header>
+        <div className="App__main">
+          <Sider></Sider>
+          <Content>
+            <LikesCounter count={likedCount} />
+            <PostsList items={posts} onLikedClicked={onLikedClicked} />
+          </Content>
+        </div>
       </div>
-    </div>
+    </UserContext.Provider>
   );
 }
 

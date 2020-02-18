@@ -1,17 +1,21 @@
 import React from 'react';
-import withUser from './withUser';
+import UserContext from './UserContext';
 
 function UserProfile({user}) {
     return (
-        <ul>
-            <li>
-                First name: {user.firstName}
-            </li>
-            <li>
-                Last name: {user.lastName}
-            </li>
-        </ul>
+        <UserContext.Consumer>
+            {user => (
+                <ul>
+                    <li>
+                        First name: {user.firstName}
+                    </li>
+                    <li>
+                        Last name: {user.lastName}
+                    </li>
+                </ul>
+            )}
+        </UserContext.Consumer>
     )
 }
 
-export default withUser(UserProfile);
+export default UserProfile;

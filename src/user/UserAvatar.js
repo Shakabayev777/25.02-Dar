@@ -1,12 +1,16 @@
 import React from 'react';
-import withUser from './withUser';
+import UserContext from './UserContext';
 
-function UserAvatar({user}) {
+function UserAvatar() {
     return (
-        <div className="UserAvatar">
-            Hello, {user.firstName} {user.lastName}
-        </div>
+        <UserContext.Consumer>
+            {user => (
+                <div className="UserAvatar">
+                    Hello, {user.firstName} {user.lastName}
+                </div>
+            )}
+        </UserContext.Consumer>
     )
 }
 
-export default withUser(UserAvatar);
+export default UserAvatar;
