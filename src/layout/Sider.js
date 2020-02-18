@@ -5,7 +5,7 @@ import UserProfile from '../user/UserProfile';
 export default function Sider({user}) {
     return (
         <aside className="Sider">
-            <UserProfile user={user} />
+            <UserProfile />
         </aside>
     )
 }

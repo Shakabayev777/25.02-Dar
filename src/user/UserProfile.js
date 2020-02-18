@@ -1,6 +1,7 @@
 import React from 'react';
+import withUser from './withUser';
 
-export default function UserProfile({user}) {
+function UserProfile({user}) {
     return (
         <ul>
             <li>
@@ -12,3 +13,5 @@ export default function UserProfile({user}) {
         </ul>
     )
 }
+
+export default withUser(UserProfile);

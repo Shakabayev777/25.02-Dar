@@ -47,18 +47,13 @@ function App() {
     setPosts(newPosts);
   }
 
-  const user = {
-    firstName: 'Miras',
-    lastName: 'Magzom',
-  }
-
   return (
     <div className="App">
       <Header>
-        <UserAvatar user={user}/>
+        <UserAvatar/>
       </Header>
       <div className="App__main">
-        <Sider user={user}></Sider>
+        <Sider></Sider>
         <Content>
           <LikesCounter count={likedCount} />
           <PostsList items={posts} onLikedClicked={onLikedClicked} />

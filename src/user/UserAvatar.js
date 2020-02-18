@@ -1,9 +1,12 @@
 import React from 'react';
+import withUser from './withUser';
 
-export default function UserAvatar({user}) {
+function UserAvatar({user}) {
     return (
         <div className="UserAvatar">
             Hello, {user.firstName} {user.lastName}
         </div>
     )
 }
+
+export default withUser(UserAvatar);
